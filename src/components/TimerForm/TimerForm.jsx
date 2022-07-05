@@ -22,8 +22,16 @@ class TimerForm extends Component {
     this.setState({ project: e.target.value });
   };
 
+  handleSubmit = () => {
+    this.props.onFormSubmit({
+      id: this.props.id,
+      title: this.state.title,
+      project: this.state.project,
+    });
+  };
+
   render() {
-    const submitText = this.state.title ? "Update" : "Create";
+    const submitText = this.props.id ? "Update" : "Create";
 
     return (
       <div style={timerOuterDivStyle}>
@@ -50,8 +58,12 @@ class TimerForm extends Component {
             </div>
 
             <div style={timerButtonDivStyle}>
-              <button style={timerButtonStyle}>{submitText}</button>
-              <button style={timerButtonStyle}>Cancel</button>
+              <button style={timerButtonStyle} onClick={this.handleSubmit}>
+                {submitText}
+              </button>
+              <button style={timerButtonStyle} onClick={this.props.onFormClose}>
+                Cancel
+              </button>
             </div>
           </div>
         </div>

@@ -42,7 +42,7 @@ class Timer extends Component {
           </div>
           <div style={deleteAndEditIconDivStyle}>
             <DeleteFilled style={buttonStyle} />
-            <EditFilled style={buttonStyle}/>
+            <EditFilled style={buttonStyle} onClick={this.props.onEditClick}/>
           </div>
 
           <div style={timerStartDivStyle}>
