@@ -24,6 +24,10 @@ class Timer extends Component {
     return hours + ":" + minutes + ":" + seconds;
   };
 
+  handleTrashClick = () => {
+    this.props.onTrashClick(this.props.id);
+  };
+
   render() {
     return (
       <div style={timerOuterDivStyle}>
@@ -41,8 +45,8 @@ class Timer extends Component {
             </h1>
           </div>
           <div style={deleteAndEditIconDivStyle}>
-            <DeleteFilled style={buttonStyle} />
-            <EditFilled style={buttonStyle} onClick={this.props.onEditClick}/>
+            <DeleteFilled style={buttonStyle} onClick={this.handleTrashClick} />
+            <EditFilled style={buttonStyle} onClick={this.props.onEditClick} />
           </div>
 
           <div style={timerStartDivStyle}>

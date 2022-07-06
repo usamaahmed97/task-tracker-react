@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { DashboardOuterContainerStyle } from "./TimersDashboardStyles";
 import EditableTimerList from "../EditableTimerList/EditableTimerList";
 import ToggleableTimerForm from "../ToggleableTimerForm/ToggleableTimerForm";
-import helpers from "../../helpers";
 
 class TimersDashboard extends Component {
   constructor(props) {
@@ -75,10 +74,25 @@ class TimersDashboard extends Component {
     return timer;
   };
 
+  handleTrashClick = (timerId) => {
+    this.deleteTimer(timerId);
+  };
+
+  deleteTimer = (timerId) => {
+    this.setState({
+      timers: this.state.timers.filter((timer) => timer.id !== timerId),
+    });
+  };
+
   render() {
     return (
       <div style={DashboardOuterContainerStyle}>
-        <EditableTimerList timers={this.state.timers} onFormSubmit={this.handleEditFormSubmit} />
+        <EditableTimerList
+          timers={this.state.timers}
+          onFormSubmit={this.handleEditFormSubmit}
+          onTrashClick = {this.handleTrashClick}
+
+        />
         <ToggleableTimerForm onFormSubmit={this.handleCreateFormSubmit} />
       </div>
     );
