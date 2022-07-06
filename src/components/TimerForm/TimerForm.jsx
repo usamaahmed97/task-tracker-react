@@ -48,6 +48,8 @@ class TimerForm extends Component {
                   fontWeight: "bolder",
                   backgroundColor: "#064663",
                   color: "white",
+                  outline: "none",
+                  paddingLeft: "5px",
                 }}
                 value={this.state.title}
                 onChange={this.handleTitleChange}
@@ -65,6 +67,8 @@ class TimerForm extends Component {
                   fontWeight: "bolder",
                   backgroundColor: "#064663",
                   color: "white",
+                  outline: "none",
+                  paddingLeft: "5px",
                 }}
                 value={this.state.project}
                 onChange={this.handleProjectChange}
