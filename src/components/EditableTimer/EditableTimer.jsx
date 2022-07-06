@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { editableTimerOuterDivStyle } from "./EditableTimerStyles";
+ 
 import Timer from "../Timer/Timer";
 import TimerForm from "../TimerForm/TimerForm";
 
@@ -12,16 +12,8 @@ class EditableTimer extends Component {
     this.openForm();
   };
 
-  openForm = () => {
-    this.setState({ editFormOpen: true });
-  };
-
   handleFormClose = () => {
     this.closeForm();
-  };
-
-  closeForm = () => {
-    this.setState({ editFormOpen: false });
   };
 
   handleSubmit = (timer) => {
@@ -29,10 +21,18 @@ class EditableTimer extends Component {
     this.closeForm();
   };
 
+  openForm = () => {
+    this.setState({ editFormOpen: true });
+  };
+
+  closeForm = () => {
+    this.setState({ editFormOpen: false });
+  };
+
   render() {
     if (this.state.editFormOpen) {
       return (
-        <div style={editableTimerOuterDivStyle}>
+        <div >
           <TimerForm
             id={this.props.id}
             title={this.props.title}
@@ -44,7 +44,7 @@ class EditableTimer extends Component {
       );
     } else {
       return (
-        <div style={editableTimerOuterDivStyle}>
+        <div  >
           <Timer
             id={this.props.id}
             title={this.props.title}
@@ -52,7 +52,9 @@ class EditableTimer extends Component {
             elapsed={this.props.elapsed}
             runningSince={this.props.runningSince}
             onEditClick={this.handleEditClick}
-            onTrashClick = {this.props.onTrashClick}
+            onTrashClick={this.props.onTrashClick}
+            onStartClick={this.props.onStartClick}
+            onStopClick={this.props.onStopClick}
           />
         </div>
       );

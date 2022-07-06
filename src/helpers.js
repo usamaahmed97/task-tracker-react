@@ -61,4 +61,5 @@ window.helpers = (function () {
     findById,
     renderElapsedString,
   };
-})();
+}
+)();
