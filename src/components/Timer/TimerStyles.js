@@ -52,4 +52,5 @@ export const deleteAndEditIconDivStyle = {
 
 export const buttonStyle = {
   margin: "0px 10px 0px 10px",
+  color: "#04293A",
 };

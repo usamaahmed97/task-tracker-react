@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { DashboardOuterContainerStyle } from "./TimersDashboardStyles";
 import EditableTimerList from "../EditableTimerList/EditableTimerList";
 import ToggleableTimerForm from "../ToggleableTimerForm/ToggleableTimerForm";
+import Header from "../Header/Header";
 
 class TimersDashboard extends Component {
   constructor(props) {
@@ -131,6 +132,7 @@ class TimersDashboard extends Component {
   render() {
     return (
       <div style={DashboardOuterContainerStyle}>
+        <Header />
         <EditableTimerList
           timers={this.state.timers}
           onFormSubmit={this.handleEditFormSubmit}
