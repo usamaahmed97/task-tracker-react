@@ -1,5 +1,5 @@
 import React, { Component } from "react";
- 
+
 import Timer from "../Timer/Timer";
 import TimerForm from "../TimerForm/TimerForm";
 
@@ -32,7 +32,7 @@ class EditableTimer extends Component {
   render() {
     if (this.state.editFormOpen) {
       return (
-        <div >
+        <div>
           <TimerForm
             id={this.props.id}
             title={this.props.title}
@@ -44,7 +44,7 @@ class EditableTimer extends Component {
       );
     } else {
       return (
-        <div  >
+        <div>
           <Timer
             id={this.props.id}
             title={this.props.title}

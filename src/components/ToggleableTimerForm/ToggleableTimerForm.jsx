@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TimerForm from "../TimerForm/TimerForm";
-import { togglePlusButtonStyle} from "./ToggleableTimerFormStyles";
+import { togglePlusButtonStyle } from "./ToggleableTimerFormStyles";
 
 class ToggleableTimerForm extends Component {
   state = {
