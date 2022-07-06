@@ -12,12 +12,14 @@ export const timerFormStyle = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-between",
+  marginTop: "10px",
 };
 
 export const timerFormlabelAndInputDivStyle = {
-  margin: "5px 0px 10px 0px",
-  display:"flex",
-  flexDirection:"column"
+  margin: "10px 0px 10px 0px",
+  display: "flex",
+  flexDirection: "column",
+  color: "#04293A",
 };
 
 export const timerButtonDivStyle = {
@@ -32,5 +34,6 @@ export const timerButtonStyle = {
   height: "30px",
   width: "108px",
   color: "white",
-  backgroundColor: "black",
+  backgroundColor: "#064663",
+  borderRadius: "20px",
 };

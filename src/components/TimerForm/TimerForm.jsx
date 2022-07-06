@@ -41,7 +41,14 @@ class TimerForm extends Component {
               <span>Title</span>
               <input
                 type="text"
-                style={{ marginTop: "5px" }}
+                style={{
+                  marginTop: "5px",
+                  border: "none",
+                  borderRadius: "5px",
+                  fontWeight: "bolder",
+                  backgroundColor: "#064663",
+                  color: "white",
+                }}
                 value={this.state.title}
                 onChange={this.handleTitleChange}
               />
@@ -51,7 +58,14 @@ class TimerForm extends Component {
               <span>Project</span>
               <input
                 type="text"
-                style={{ marginTop: "5px" }}
+                style={{
+                  marginTop: "5px",
+                  border: "none",
+                  borderRadius: "5px",
+                  fontWeight: "bolder",
+                  backgroundColor: "#064663",
+                  color: "white",
+                }}
                 value={this.state.project}
                 onChange={this.handleProjectChange}
               />

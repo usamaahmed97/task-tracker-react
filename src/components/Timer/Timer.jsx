@@ -39,7 +39,7 @@ class Timer extends Component {
       totalElapsed += Date.now() - runningSince;
     }
     return this.millisecondsToHuman(totalElapsed);
-  }
+  };
 
   millisecondsToHuman = (ms) => {
     const seconds = Math.floor((ms / 1000) % 60);
@@ -71,7 +71,7 @@ class Timer extends Component {
         <div style={timerInnerDivStyle}>
           <div style={timerHeaderStyle}>
             <h3>{this.props.title}</h3>
-            <p style={{ marginTop: "-15px", color: "grey" }}>
+            <p style={{ marginTop: "-15px", color: "#064663" }}>
               {this.props.project}
             </p>
           </div>

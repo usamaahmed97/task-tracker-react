@@ -14,19 +14,21 @@ class TimerActionButton extends Component {
             style={timerStartButtonDivStyle}
             onClick={this.props.onStopClick}
           >
-            Stop
+            STOP
           </button>
         </div>
       );
     } else {
-     return( <div>
-        <button
-          style={timerStartButtonDivStyle}
-          onClick={this.props.onStartClick}
-        >
-          Start
-        </button>
-      </div>)
+      return (
+        <div>
+          <button
+            style={timerStartButtonDivStyle}
+            onClick={this.props.onStartClick}
+          >
+            START
+          </button>
+        </div>
+      );
     }
   }
 }
