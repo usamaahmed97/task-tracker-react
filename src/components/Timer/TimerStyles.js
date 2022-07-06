@@ -1,6 +1,7 @@
 export const timerOuterDivStyle = {
   width: "250px",
   backgroundColor: "#B0E0E6",
+  margin:"20px"
 };
 
 export const timerInnerDivStyle = {

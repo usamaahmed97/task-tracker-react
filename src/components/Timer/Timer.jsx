@@ -1,34 +1,71 @@
 import React, { Component } from "react";
+import TimerActionButton from "../TimerActionButton/TimerActionButton";
 import { DeleteFilled, EditFilled } from "@ant-design/icons";
 import {
   timerOuterDivStyle,
   timerInnerDivStyle,
   timerHeaderStyle,
   timerClockDivStyle,
-  timerStartButtonDivStyle,
   timerStartDivStyle,
   deleteAndEditIconDivStyle,
   buttonStyle,
 } from "./TimerStyles";
 
 class Timer extends Component {
-  msToHMS = (duration) => {
-    var seconds = parseInt((duration / 1000) % 60);
-    var minutes = parseInt((duration / (1000 * 60)) % 60);
-    var hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+  componentDidMount() {
+    this.forceUpdateInterval = setInterval(() => this.forceUpdate(), 50);
+  }
 
-    hours = hours < 10 ? "0" + hours : hours;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
+  componentWillUnmount() {
+    clearInterval(this.forceUpdateInterval);
+  }
 
-    return hours + ":" + minutes + ":" + seconds;
+  handleStartClick = () => {
+    this.props.onStartClick(this.props.id);
+  };
+
+  handleStopClick = () => {
+    this.props.onStopClick(this.props.id);
   };
 
   handleTrashClick = () => {
     this.props.onTrashClick(this.props.id);
   };
 
+  // Helper Function
+  renderElapsedString = (elapsed, runningSince) => {
+    let totalElapsed = elapsed;
+    if (runningSince) {
+      totalElapsed += Date.now() - runningSince;
+    }
+    return this.millisecondsToHuman(totalElapsed);
+  }
+
+  millisecondsToHuman = (ms) => {
+    const seconds = Math.floor((ms / 1000) % 60);
+    const minutes = Math.floor((ms / 1000 / 60) % 60);
+    const hours = Math.floor(ms / 1000 / 60 / 60);
+
+    const humanized = [
+      this.pad(hours.toString(), 2),
+      this.pad(minutes.toString(), 2),
+      this.pad(seconds.toString(), 2),
+    ].join(":");
+
+    return humanized;
+  };
+
+  pad = (numberString, size) => {
+    let padded = numberString;
+    while (padded.length < size) padded = `0${padded}`;
+    return padded;
+  };
+
   render() {
+    const elapsedString = this.renderElapsedString(
+      this.props.elapsed,
+      this.props.runningSince
+    );
     return (
       <div style={timerOuterDivStyle}>
         <div style={timerInnerDivStyle}>
@@ -41,7 +78,8 @@ class Timer extends Component {
 
           <div style={timerClockDivStyle}>
             <h1 style={{ marginTop: "0px" }}>
-              {this.msToHMS(this.props.elapsed)}
+              {/* {this.msToHMS(this.props.elapsed)} */}
+              {elapsedString}
             </h1>
           </div>
           <div style={deleteAndEditIconDivStyle}>
@@ -50,7 +88,11 @@ class Timer extends Component {
           </div>
 
           <div style={timerStartDivStyle}>
-            <button style={timerStartButtonDivStyle}>Start</button>
+            <TimerActionButton
+              timerIsRunning={!!this.props.runningSince}
+              onStartClick={this.handleStartClick}
+              onStopClick={this.handleStopClick}
+            />
           </div>
         </div>
       </div>
