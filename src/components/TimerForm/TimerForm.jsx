@@ -41,6 +41,7 @@ class TimerForm extends Component {
               <span>Title</span>
               <input
                 type="text"
+                name="title"
                 style={{
                   marginTop: "5px",
                   border: "none",
@@ -50,6 +51,7 @@ class TimerForm extends Component {
                   color: "white",
                   outline: "none",
                   paddingLeft: "5px",
+                  
                 }}
                 value={this.state.title}
                 onChange={this.handleTitleChange}
@@ -60,6 +62,7 @@ class TimerForm extends Component {
               <span>Project</span>
               <input
                 type="text"
+                name="project"
                 style={{
                   marginTop: "5px",
                   border: "none",
